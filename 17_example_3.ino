@@ -70,7 +70,6 @@ void loop()
 
   dist_ema = dist_raw * EMA_ALPHA + (1 - EMA_ALPHA) * dist_ema;
       
-  //duty = map(dist_ema, _DIST_MIN, _DIST_MAX, _DUTY_MIN, _DUTY_MAX);
   duty = CustomMap(_DUTY_MIN,_DUTY_MAX,_DIST_MIN,_DIST_MAX,dist_ema);
   
   myservo.writeMicroseconds(duty);
